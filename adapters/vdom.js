@@ -64,6 +64,7 @@ const hyperHelpers = [
 	(o, tag) => {
 		o[tag] = function() {
 			return [Array.prototype.slice.call(arguments)]
+				.map(processAttrs)
 				.map(
 					args => (
 						args[0] && typeof args[0] === 'string'
