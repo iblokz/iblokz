@@ -13,7 +13,8 @@ module.exports = {
 		fn: require('./common/fn'),
 		obj: require('./common/obj'),
 		str: require('./common/str'),
-		cli: require('./common/cli')
+		cli: require('./common/cli'),
+		arr: require('./common/cli')
 	},
 	app: {
 		store: require('./app/store')
