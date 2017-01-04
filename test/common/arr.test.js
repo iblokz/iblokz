@@ -4,7 +4,7 @@ const expect = require('chai').expect;
 
 const arr = require('../../common/arr');
 
-describe('common/arr', () =>
+describe('arr', () =>
   describe('fromList', () =>
     it('converts array like list object to array', () =>
       expect(

@@ -4,7 +4,7 @@ const expect = require('chai').expect;
 
 const str = require('../../common/str');
 
-describe('common/str', () =>
+describe('str', () =>
   describe('toCamelCase', () =>
     it('should convert dash separated str to camelcase', () =>
       expect(
@@ -12,9 +12,9 @@ describe('common/str', () =>
       ).to.equal('inchHighPrivateEye')
     )
     &&
-    it('should convert underscore separated str to camelcase', () =>
+    it('should convert by default underscore separated str to camelcase', () =>
       expect(
-        str.toCamelCase('inch_high_private_eye', '_')
+        str.toCamelCase('inch_high_private_eye')
       ).to.equal('inchHighPrivateEye')
     )
   )
@@ -26,9 +26,9 @@ describe('common/str', () =>
       ).to.equal('inch-high-private-eye')
     )
     &&
-    it('should convert camelcase str to underscore separated', () =>
+    it('should convert by default camelcase str to underscore separated', () =>
       expect(
-        str.fromCamelCase('inchHighPrivateEye', '_')
+        str.fromCamelCase('inchHighPrivateEye')
       ).to.equal('inch_high_private_eye')
     )
   )

@@ -4,16 +4,35 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --colors -w test/**/*"
+    "test": "nyc mocha --colors test/**/*"
+  },
+  "nyc": {
+    "include": [
+      "adapters/**/*.js",
+      "common/**/*.js",
+      "app/**/*.js",
+      "ui/**/*.js"
+    ],
+    "exclude": [
+      "node_modules/",
+      "test/"
+    ],
+    "reporter": [
+      "lcov",
+      "text",
+      "html"
+    ]
   },
   "author": "",
   "license": "ISC",
   "peerDependencies": {
     "snabbdom": "^0.5.4",
-    "superagent": "^3.3.1"
+    "superagent": "^3.3.1",
+    "rx": "^4.1.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "nyc": "^10.0.0"
   }
 }
