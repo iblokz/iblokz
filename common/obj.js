@@ -26,6 +26,15 @@ const map = (o, cb) => Object.keys(o)
 			((o2[k] = cb(o[k], k, i)), o2),
 		{});
 
+
+const traverse = (tree, fn) => Object.keys(tree).reduce((o, k) =>
+	patch(o, k,
+		(typeof tree[k] === 'object' && tree[k].constructor === Object)
+			? traverse(tree[k], fn)
+			: fn(tree[k], k)
+	), {}
+);
+
 const chainCall = (o, chain) => chain.reduce(
 	(o, link) => (typeof link[1] === 'undefined')
 		? o[link[0]]()
@@ -39,5 +48,6 @@ module.exports = {
 	sub,
 	patch,
 	map,
+	traverse,
 	chainCall
 };
